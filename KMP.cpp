@@ -14,7 +14,7 @@ vector<int> getPartialMatch(const string& N)
 	if (N[begin + matched] == N[matched])
 	{
 	    ++matched;
-	    pi[begin + matched] = matched;
+	    pi[begin + matched - 1] = matched;
 	}
 	else
 	{
