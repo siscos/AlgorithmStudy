@@ -40,7 +40,7 @@ vector<int> kmpSearch(const string& H, const string& N)
 
     while(begin <= n - m)
     {
-	if (match < m && H[begin + matched] == N[matched])
+	if (matched < m && H[begin + matched] == N[matched])
 	{
 	    ++matched;
 
