@@ -13,7 +13,7 @@ vector<vector<int>> adj;
 // finished[i] = dfs(i)가 종료되었으면 1, 아니면 0
 vector<int> discovered, finished;
 // 지금까지 발견한 정점의 수
-int counter;
+int counter = 0;
 void dfs2(int here)
 {
     discovered[here] = counter++;
