@@ -39,3 +39,75 @@ void bubbleSort(vector<int>& v)
 		}
 	}
 }
+
+void mergeSort(vector<int>& v, int low, int high)
+{
+    if (low < high)
+    {
+	int middle = (low + high) / 2;
+	mergeSort(v, low, middle);
+	mergeSort(v, middle + 1, high);
+	merge(v, low, middle, high);
+    }
+}
+
+void merge(vector<int>& v, int low, int middle, int high)
+{
+    vector<int> helper(v.size());
+    for(int i = low; i <= high; i++)
+	helper[i] = v[i];
+
+    int helperLeft = low;
+    int helperRight = middle + 1;
+    int current = low;
+
+    while(helperLeft <= middle && helperRight <= high)
+    {
+	if (helper[helperLeft] <= helper[helperRight])
+	{
+	    v[current] = helper[helperLeft];
+	    helperLeft++;
+	}
+	else
+	{
+	    v[current] = helper[helperRight];
+	    helperRight++;
+	}
+	current++;
+    }
+    // 왼쪽에 절반 배열에 남은 원소들을 원래 배열에 복사
+    int remaining = middle - helperLeft;
+    for(int i = 0; i <= remaining; i++)
+	v[current + i] = helper[helperLeft + i];
+}
+
+void quickSort(vector<int>& v, int left, int right)
+{
+    int index = partition(v, left, right);
+    if (left < index - 1)
+	quickSort(v, left, index - 1);
+    else
+	quickSort(v, index, right);
+}
+
+void partition(vector<int>& v, int left, int right)
+{
+    int pivot = v[(left + right) / 2];
+    while(left <= right)
+    {
+	while(arr[left] < pivot) 
+	    left++;
+
+	while(arr[right] > pivot)
+	    right--;
+
+	// 원소들의 자리를 바꾸고 left, right 이동
+	if (left <= right)
+	{
+	    swap(v[left], v[right]);
+	    left++;
+	    right--;
+	}
+    }
+    return left;
+}
