@@ -10,7 +10,7 @@ void dfs(int here)
     {
 	int there = adj[here][i];
 	if (!visited[there])
-	    dfs(here);
+	    dfs(there);
     }
 }
 
