@@ -1,4 +1,4 @@
-vector<int> adj;
+vector<vector<int>> adj;
 vector<bool> visited;
 
 void dfs(int here)
