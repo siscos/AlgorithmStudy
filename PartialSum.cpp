@@ -2,7 +2,7 @@ vector<int> partialSum(const vector<int>& a)
 {
     vector<int> ret(a.size());
     ret[0] = a[0];
-    for(int i = 0; i < a.size(); i++)
+    for(int i = 1; i < a.size(); i++)
 	ret[i] = a[i] + ret[i - 1];
 
     return ret;
