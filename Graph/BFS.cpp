@@ -1,4 +1,4 @@
-vector<int> adj;
+vector<vector<int>> adj;
 
 vector<int> bfs(int start)
 {
@@ -44,7 +44,7 @@ void bfs2(int start, vector<int>& distance, vector<int>& parent)
 	int here = q.front();
 	q.pop();
 
-	for(int i = 0; adj[here].size(); i++)
+	for(int i = 0; i < adj[here].size(); i++)
 	{
 	    int there = adj[here][i];
 	    if (distance[there] == -1)
@@ -64,7 +64,7 @@ vector<int> shortestPath(int v, const vector<int>& parent)
     while(parent[v] != v)
     {
 	v = parent[v];
-	parent.push_back(v);
+	path.push_back(v);
     }
     reverse(path.begin(), path.end());
     return path;
