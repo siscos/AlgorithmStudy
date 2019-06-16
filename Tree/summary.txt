@@ -1,0 +1,5 @@
+<구간 트리(for example RMQ(Range Minimum Query))>
+일차원 배열의 특정 구간에 대한 질문을 빠르게 대답하는데 사용
+
+<팬윅 트리 혹은 이진 인덱스 트리(binary indexed tree)>
+구간 합을 빠르게 구할 때 사용
