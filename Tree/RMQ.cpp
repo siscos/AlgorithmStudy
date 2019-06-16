@@ -48,6 +48,7 @@ struct RMQ
 	{
 		return query(left, right, 1, 0, n - 1);
 	}
+	
 	//array[index] = newValue로 바뀌었을 때 node를 루트로 하는 
 	//구간 트리를 갱신하고 노드가 표현하는 구간의 최소치를 반환한다.
 	int update(int index, int newValue, int node, int nodeLeft, int nodeRight)
