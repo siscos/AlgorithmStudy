@@ -1,11 +1,12 @@
+// dfs()가 종료될 때마다 현재 정점을 번호를 기록하고 defAll()이 종료된 후 뒤짚는다
 vector<int> seen, order;
 void dfs(int here)
 {
     seen[here] = 1;
     for(int there = 0; there < adj.size(); there++)
     {
-	if (adj[here][there] && !seen[there])
-	    dfs(there);
+        if (adj[here][there] && !seen[there])
+            dfs(there);
     }
     order.push_back(here);
 }
@@ -19,19 +20,19 @@ vector<int> topologicalSort()
     order.clear();
     for(int i = 0; i < n; i++)
     {
-	if (!seen[i])
-	    dfs(i);
+        if (!seen[i])
+            dfs(i);
     }
 
     reverse(order.begin(), order.end());
     // 만약 그래프가 DAG가 아니라면 정렬 결과에 역방향 간선이 있다.
     for(int i = 0; i < n; i++)
     {
-	for(int j = i + 1; j < n; j++)
-	{
-	    if (adj[order[j]][order[i]])
-		return vector<int>();
-	}
+        for(int j = i + 1; j < n; j++)
+        {
+            if (adj[order[j]][order[i]])
+                return vector<int>();
+        }
     }
     return order;
 }

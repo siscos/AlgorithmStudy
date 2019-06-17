@@ -7,12 +7,12 @@ void getEulerCircuit(int here, vector<int>& circuit)
 {
     for(int there = 0; there < adj[here].size(); there++)
     {
-	while(adj[here][there] > 0)
-	{
-	    adj[here][there]--;
-	    adj[there][here]--;
-	    getEulerCircuit(there, circuit);
-	}
+        while(adj[here][there] > 0)
+        {
+            adj[here][there]--;
+            adj[there][here]--;
+            getEulerCircuit(there, circuit);
+        }
     }
     circuit.push_back(here);
 }
