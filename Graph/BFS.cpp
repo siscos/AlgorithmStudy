@@ -5,6 +5,7 @@ vector<int> bfs(int start)
     vector<bool> discovered(adj.size(), false);
     queue<int> q;
     // 정점의 방문 순서
+	vector<int> orders;
     discovered[start] = true;
     q.push(start);
     while(!q.empty())
